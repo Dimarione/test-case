@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task_1</title>
+</head>
+<body>
+
+<label typr="text" for="input_1">Первое число</label><br>
+<input type="text" id="input_1" value="0.1"/><br>
+
+<label type="text" for="input_2">Второе число</label><br>
+<input type="text" id="input_2" value="0.2"/><br>
+
+<input type="button" id="btn" value="Сложить">
+
+<script>
+	function getValue(elementId) {
+		return document.getElementById(elementId).value;
+	}
+
+	function isNumeric(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
+	//check is a variable number
+	function isNumber(value1, value2) {
+		return isNumeric(value1) && isNumeric(value2);
+	}
+
+	//find the amount
+	function getSum() {
+		var sum;
+		var ValueOfInput1 = getValue('input_1');
+		var ValueOfInput2 = getValue('input_2');
+
+		if (isNumber(ValueOfInput1, ValueOfInput2)) {
+			sum = Math.round((Number(ValueOfInput1) + Number(ValueOfInput2)) * 10) / 10;
+		} else {
+			sum = 'Не верное значение';
+		}
+
+		alert(sum);
+	}
+
+	document.getElementById('btn').onclick = getSum;
+</script>
+</body>
+</html>
